@@ -1,0 +1,140 @@
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App3.MainPage"
+             BackgroundColor="#F7F7F7">
+
+    <ContentPage.BindingContext>
+        <local:CVViewModel /> <!-- Vinculamos el ViewModel -->
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="20" BackgroundColor="White">
+
+            <!-- Header -->
+            <StackLayout BackgroundColor="#4A90E2" Padding="20" HorizontalOptions="FillAndExpand">
+                <Frame BackgroundColor="Transparent"
+                       Padding="0"
+                       HeightRequest="150"
+                       WidthRequest="150"
+                       CornerRadius="75"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center">
+                    <Image Source="https://image.freepik.com/vector-gratis/dibujos-animados-perfil-mujer_18591-58475.jpg"
+                           Aspect="AspectFill"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                </Frame>
+
+                <StackLayout VerticalOptions="Center" Spacing="5">
+                    <Label Text="{Binding Name}"  <!-- Nombre y Apellidos -->
+                           TextColor="White"
+                           FontSize="28"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding Occupation}" <!-- Ocupación -->
+                           TextColor="#D3D3D3"
+                           FontSize="18"
+                           HorizontalTextAlignment="Center" />
+                </StackLayout>
+            </StackLayout>
+
+            <!-- Contact Info -->
+            <StackLayout BackgroundColor="#E5E5E5" Padding="20" Spacing="15">
+                <Label Text="Información de Contacto" FontSize="22" FontAttributes="Bold" TextColor="#333" />
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <Image Source="https://cdn-icons-png.flaticon.com/128/126/126341.png" WidthRequest="20" HeightRequest="20" />
+                    <Label Text="{Binding Phone}" FontSize="16" TextColor="#555" /> <!-- Teléfono -->
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <Image Source="https://cdn-icons-png.flaticon.com/128/3494/3494693.png" WidthRequest="20" HeightRequest="20" />
+                    <Label Text="{Binding Email}" FontSize="16" TextColor="#555" /> <!-- Email -->
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <Image Source="https://cdn-icons-png.flaticon.com/128/731/731582.png" WidthRequest="20" HeightRequest="20" />
+                    <Label Text="{Binding Location}" FontSize="16" TextColor="#555" /> <!-- Ubicación -->
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <Image Source="https://cdn-icons-png.flaticon.com/128/61/61109.png" WidthRequest="20" HeightRequest="20" />
+                    <Label Text="{Binding LinkedIn}" FontSize="16" TextColor="#555" /> <!-- LinkedIn -->
+                </StackLayout>
+            </StackLayout>
+
+            <!-- Profile -->
+            <StackLayout Padding="20" Spacing="15">
+                <Label Text="Perfil Profesional" FontSize="22" FontAttributes="Bold" TextColor="#333" />
+                <Label Text="{Binding ProfessionalProfile}" FontSize="16" TextColor="#555" LineBreakMode="WordWrap" /> <!-- Perfil Profesional -->
+            </StackLayout>
+
+            <!-- Experience -->
+            <StackLayout Padding="20" Spacing="20">
+                <Label Text="Experiencia Laboral" FontSize="22" FontAttributes="Bold" TextColor="#333" />
+                <Frame Padding="10" BackgroundColor="#F1F1F1" CornerRadius="8">
+                    <StackLayout>
+                        <Label Text="Trabajadora Social - México DF (2022 - Actualmente)"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="#333" />
+                        <Label Text="• Coordinadora y mediadora entre los equipos de ayuda psicológica a jóvenes y niños en exclusión social."
+                               FontSize="16"
+                               TextColor="#555" />
+                        <Label Text="• Velar por la salud mental del equipo y de miembros involucrados en proyectos."
+                               FontSize="16"
+                               TextColor="#555" />
+                        <Label Text="• Mapeo de necesidades estratégicas y lógicas para las diferentes áreas."
+                               FontSize="16"
+                               TextColor="#555" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <!-- Education -->
+            <StackLayout Padding="20" Spacing="20">
+                <Label Text="Educación" FontSize="22" FontAttributes="Bold" TextColor="#333" />
+                <Frame Padding="10" BackgroundColor="#F1F1F1" CornerRadius="8">
+                    <StackLayout>
+                        <Label Text="Licenciatura en Trabajo Social - Universidad XYZ (2018 - 2022)"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="#333" />
+                        <Label Text="• Graduada con honores, enfoque en desarrollo comunitario y educación inclusiva."
+                               FontSize="16"
+                               TextColor="#555" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <!-- Skills -->
+            <StackLayout Padding="20" Spacing="20">
+                <Label Text="Habilidades" FontSize="22" FontAttributes="Bold" TextColor="#333" />
+                <Frame Padding="10" BackgroundColor="#F1F1F1" CornerRadius="8">
+                    <StackLayout>
+                        <Label Text="• Coordinación de equipos multidisciplinarios"
+                               FontSize="16"
+                               TextColor="#555" />
+                        <Label Text="• Mediación en conflictos interpersonales"
+                               FontSize="16"
+                               TextColor="#555" />
+                        <Label Text="• Gestión de proyectos comunitarios"
+                               FontSize="16"
+                               TextColor="#555" />
+                        <Label Text="• Promoción de derechos humanos"
+                               FontSize="16"
+                               TextColor="#555" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <!-- Languages -->
+            <StackLayout Padding="20" Spacing="20">
+                <Label Text="Idiomas" FontSize="22" FontAttributes="Bold" TextColor="#333" />
+                <Frame Padding="10" BackgroundColor="#F1F1F1" CornerRadius="8">
+                    <StackLayout>
+                        <Label Text="Inglés: {Binding EnglishLevel}" FontSize="16" TextColor="#555" />
+                        <Label Text="Francés: {Binding FrenchLevel}" FontSize="16" TextColor="#555" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
