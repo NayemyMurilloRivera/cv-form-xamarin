@@ -1,11 +1,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="App3.MainPage"
+             x:Class="Cv.MainPage"
              BackgroundColor="#F7F7F7">
-
-    <ContentPage.BindingContext>
-        <local:CVViewModel /> <!-- Vinculamos el ViewModel -->
-    </ContentPage.BindingContext>
 
     <ScrollView>
         <StackLayout Padding="20" Spacing="20" BackgroundColor="White">
@@ -26,15 +22,10 @@
                 </Frame>
 
                 <StackLayout VerticalOptions="Center" Spacing="5">
-                    <Label Text="{Binding Name}"  <!-- Nombre y Apellidos -->
-                           TextColor="White"
-                           FontSize="28"
-                           FontAttributes="Bold"
-                           HorizontalTextAlignment="Center" />
-                    <Label Text="{Binding Occupation}" <!-- Ocupación -->
-                           TextColor="#D3D3D3"
-                           FontSize="18"
-                           HorizontalTextAlignment="Center" />
+                    <!-- Nombre dinámico -->
+                    <Entry x:Name="NameEntry" Placeholder="Ingresa tu nombre" FontSize="28" TextColor="White" HorizontalTextAlignment="Center" />
+                    <!-- Ocupación dinámica -->
+                    <Entry x:Name="OccupationEntry" Placeholder="Ingresa tu ocupación" FontSize="18" TextColor="#D3D3D3" HorizontalTextAlignment="Center" />
                 </StackLayout>
             </StackLayout>
 
@@ -43,26 +34,30 @@
                 <Label Text="Información de Contacto" FontSize="22" FontAttributes="Bold" TextColor="#333" />
                 <StackLayout Orientation="Horizontal" Spacing="15">
                     <Image Source="https://cdn-icons-png.flaticon.com/128/126/126341.png" WidthRequest="20" HeightRequest="20" />
-                    <Label Text="{Binding Phone}" FontSize="16" TextColor="#555" /> <!-- Teléfono -->
+                    <!-- Número dinámico -->
+                    <Entry x:Name="PhoneEntry" Placeholder="Ingresa tu número" FontSize="16" TextColor="#555" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" Spacing="15">
                     <Image Source="https://cdn-icons-png.flaticon.com/128/3494/3494693.png" WidthRequest="20" HeightRequest="20" />
-                    <Label Text="{Binding Email}" FontSize="16" TextColor="#555" /> <!-- Email -->
+                    <!-- Correo dinámico -->
+                    <Entry x:Name="EmailEntry" Placeholder="Ingresa tu correo" FontSize="16" TextColor="#555" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" Spacing="15">
                     <Image Source="https://cdn-icons-png.flaticon.com/128/731/731582.png" WidthRequest="20" HeightRequest="20" />
-                    <Label Text="{Binding Location}" FontSize="16" TextColor="#555" /> <!-- Ubicación -->
+                    <!-- Ubicación dinámica -->
+                    <Entry x:Name="LocationEntry" Placeholder="Ingresa tu ubicación" FontSize="16" TextColor="#555" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" Spacing="15">
                     <Image Source="https://cdn-icons-png.flaticon.com/128/61/61109.png" WidthRequest="20" HeightRequest="20" />
-                    <Label Text="{Binding LinkedIn}" FontSize="16" TextColor="#555" /> <!-- LinkedIn -->
+                    <!-- LinkedIn dinámico -->
+                    <Entry x:Name="LinkedInEntry" Placeholder="Ingresa tu LinkedIn" FontSize="16" TextColor="#555" />
                 </StackLayout>
             </StackLayout>
 
             <!-- Profile -->
             <StackLayout Padding="20" Spacing="15">
                 <Label Text="Perfil Profesional" FontSize="22" FontAttributes="Bold" TextColor="#333" />
-                <Label Text="{Binding ProfessionalProfile}" FontSize="16" TextColor="#555" LineBreakMode="WordWrap" /> <!-- Perfil Profesional -->
+                <Editor x:Name="ProfileEditor" Placeholder="Ingresa tu perfil profesional" FontSize="16" TextColor="#555" />
             </StackLayout>
 
             <!-- Experience -->
@@ -70,19 +65,8 @@
                 <Label Text="Experiencia Laboral" FontSize="22" FontAttributes="Bold" TextColor="#333" />
                 <Frame Padding="10" BackgroundColor="#F1F1F1" CornerRadius="8">
                     <StackLayout>
-                        <Label Text="Trabajadora Social - México DF (2022 - Actualmente)"
-                               FontSize="18"
-                               FontAttributes="Bold"
-                               TextColor="#333" />
-                        <Label Text="• Coordinadora y mediadora entre los equipos de ayuda psicológica a jóvenes y niños en exclusión social."
-                               FontSize="16"
-                               TextColor="#555" />
-                        <Label Text="• Velar por la salud mental del equipo y de miembros involucrados en proyectos."
-                               FontSize="16"
-                               TextColor="#555" />
-                        <Label Text="• Mapeo de necesidades estratégicas y lógicas para las diferentes áreas."
-                               FontSize="16"
-                               TextColor="#555" />
+                        <Label Text="Experiencia en tu trabajo" FontSize="18" FontAttributes="Bold" TextColor="#333" />
+                        <Editor x:Name="ExperienceEditor" Placeholder="Detalles de tu experiencia" FontSize="16" TextColor="#555" />
                     </StackLayout>
                 </Frame>
             </StackLayout>
@@ -92,13 +76,8 @@
                 <Label Text="Educación" FontSize="22" FontAttributes="Bold" TextColor="#333" />
                 <Frame Padding="10" BackgroundColor="#F1F1F1" CornerRadius="8">
                     <StackLayout>
-                        <Label Text="Licenciatura en Trabajo Social - Universidad XYZ (2018 - 2022)"
-                               FontSize="18"
-                               FontAttributes="Bold"
-                               TextColor="#333" />
-                        <Label Text="• Graduada con honores, enfoque en desarrollo comunitario y educación inclusiva."
-                               FontSize="16"
-                               TextColor="#555" />
+                        <Label Text="Tu formación educativa" FontSize="18" FontAttributes="Bold" TextColor="#333" />
+                        <Editor x:Name="EducationEditor" Placeholder="Detalles de tu educación" FontSize="16" TextColor="#555" />
                     </StackLayout>
                 </Frame>
             </StackLayout>
@@ -106,35 +85,19 @@
             <!-- Skills -->
             <StackLayout Padding="20" Spacing="20">
                 <Label Text="Habilidades" FontSize="22" FontAttributes="Bold" TextColor="#333" />
-                <Frame Padding="10" BackgroundColor="#F1F1F1" CornerRadius="8">
-                    <StackLayout>
-                        <Label Text="• Coordinación de equipos multidisciplinarios"
-                               FontSize="16"
-                               TextColor="#555" />
-                        <Label Text="• Mediación en conflictos interpersonales"
-                               FontSize="16"
-                               TextColor="#555" />
-                        <Label Text="• Gestión de proyectos comunitarios"
-                               FontSize="16"
-                               TextColor="#555" />
-                        <Label Text="• Promoción de derechos humanos"
-                               FontSize="16"
-                               TextColor="#555" />
-                    </StackLayout>
-                </Frame>
+                <Editor x:Name="SkillsEditor" Placeholder="Ingresa tus habilidades" FontSize="16" TextColor="#555" />
             </StackLayout>
 
             <!-- Languages -->
             <StackLayout Padding="20" Spacing="20">
                 <Label Text="Idiomas" FontSize="22" FontAttributes="Bold" TextColor="#333" />
-                <Frame Padding="10" BackgroundColor="#F1F1F1" CornerRadius="8">
-                    <StackLayout>
-                        <Label Text="Inglés: {Binding EnglishLevel}" FontSize="16" TextColor="#555" />
-                        <Label Text="Francés: {Binding FrenchLevel}" FontSize="16" TextColor="#555" />
-                    </StackLayout>
-                </Frame>
+                <Editor x:Name="LanguagesEditor" Placeholder="Ingresa tus idiomas" FontSize="16" TextColor="#555" />
             </StackLayout>
 
+            <!-- Enviar Botón -->
+            <Button Text="Enviar" BackgroundColor="#4A90E2" TextColor="White" Command="{Binding CreateCVCommand}" />
         </StackLayout>
     </ScrollView>
+
 </ContentPage>
+
